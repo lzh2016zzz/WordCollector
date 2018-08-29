@@ -57,8 +57,11 @@ WordCollector.prototype.scan = function (lcpArray, patArray, str, idx, minLen, m
     for (var i = idx; i < lcpArray.length; ++i) {
         var lcp = lcpArray[i];
         var start = i + 1;
-        if (lcp > maxLen || lcp < minLen || i > 0 && lcpArray[i-1] == lcp) {
+        if (lcp < minLen || i > 0 && lcpArray[i-1] == lcp) {
             continue;
+        }
+        else if(lcp > maxLen){
+            lcp = maxLen;
         }
         var text = str.substring(patArray[i]).substring(0, lcp);
         var count = 0;
