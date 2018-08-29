@@ -5,14 +5,14 @@ var str = "人民日报(People Daily)是中国共产党中央委员会机关报�
 var pat = collector.PATArray(str);
 var lcp = collector.LCPArray(pat, str);
 var res = collector.scan(lcp, pat, str, 0, 2, 4);
-// console.log("patArray:" + pat);
-//  pat.forEach((e, i, a) => {
-//      console.log("pat_" + i + "_:" + str.substring(e));
-//  })
+console.log("patArray:" + pat);
+ pat.forEach((e, i, a) => {
+     console.log("pat_" + i + "_:" + str.substring(e));
+ })
 
-// lcp.forEach((e, i, a) => {
-//    console.log("lcp_" + i + "_:" + e);
-//  })
+lcp.forEach((e, i, a) => {
+   console.log("lcp_" + i + "_:" + e);
+ })
 
 res.forEach((e, i, a) => {
     console.log("res_" + i + "_:" + JSON.stringify(e));
