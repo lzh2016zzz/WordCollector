@@ -37,10 +37,19 @@ WordCollector.prototype.sort = function (subStrIdxArray, str) {
     return this.sort(left, str).concat(equal, this.sort(right, str));
 } 
 
+/**
+ * 获取pat数组
+ * @param {*} str 源文本
+ */
 WordCollector.prototype.PATArray = function (str) {
     return this.sort(this.substr(str), str);
 }
 
+/**
+ * 
+ * @param {*} patArray pat数组
+ * @param {*} str 源文本
+ */
 WordCollector.prototype.LCPArray = function (patArray, str) {
     let ret = [];
     if (patArray.length <= 0 || !str) return ret;
@@ -63,8 +72,8 @@ WordCollector.prototype.LCPArray = function (patArray, str) {
 
 /**
  * 抽取高频词   
- * @param {} lcpArray 
- * @param {*} patArray 
+ * @param {} lcpArray lcp数组
+ * @param {*} patArray pat数组
  * @param {*} str 源文本
  * @param {*} idx 起始位置
  * @param {*} minLen 最小长度
