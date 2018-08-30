@@ -8,10 +8,19 @@ module.exports = WordCollector;
 function WordCollector() {
 }
 
+/**
+ * 获取后缀数组
+ * @param {*} str 源文本
+ */
 WordCollector.prototype.substr = function (str) {
     return Object.keys(new Int8Array(str.length)).map(Number);
 };
 
+/**
+ * 对后缀数组进行字典序排序
+ * @param {*} subStrIdxArray 后缀数组 
+ * @param {*} str 源文本
+ */
 WordCollector.prototype.sort = function (subStrIdxArray, str) {
     if (subStrIdxArray.length <= 0 || !str) return [];
     let pivotIndex = subStrIdxArray[Math.floor(subStrIdxArray.length / 2)];
@@ -52,6 +61,15 @@ WordCollector.prototype.LCPArray = function (patArray, str) {
     return ret;
 }
 
+/**
+ * 抽取高频词   
+ * @param {} lcpArray 
+ * @param {*} patArray 
+ * @param {*} str 源文本
+ * @param {*} idx 起始位置
+ * @param {*} minLen 最小长度
+ * @param {*} maxLen 最大长度
+ */
 WordCollector.prototype.scan = function (lcpArray, patArray, str, idx, minLen, maxLen) {
     let ret = [];
     for (let i = idx; i < lcpArray.length; ++i) {
@@ -83,8 +101,4 @@ WordCollector.prototype.scan = function (lcpArray, patArray, str, idx, minLen, m
         });
     }
     return ret;
-}
-
-WordCollector.prototype.merge = function(){
-    
 }

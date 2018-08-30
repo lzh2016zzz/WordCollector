@@ -1,18 +1,18 @@
 var WordCollector = require("../main/wordCollector");//test
 
 var collector = new WordCollector();
-var str = "人民日报(People Daily)是中国共产党中央委员会机关报。1948年6月15日在河北省平山县里庄创刊，由《晋察冀日报》和晋冀鲁豫《人民日报》合并而成，为华北中央局机关报，同时担负党中央机关报职能。毛泽东同志亲笔为人民日报题写报名。l949年3月15日，人民日报随中央机关迁入北平。同年8月1日，中共中央决定人民日报为中国共产党中央委员会机关报，并沿用l948年6月l5日的期号";
+var str = "人民日报(People Daily)是中国共产党中央委员会机关报。1948年6月15日在河北省平山县里庄创刊，由《晋察冀日报》和晋冀鲁豫《人民日报》合并而成";
 var pat = collector.PATArray(str);
 var lcp = collector.LCPArray(pat, str);
 var res = collector.scan(lcp, pat, str, 0, 2, 4);
-console.log("patArray:" + pat);
- pat.forEach((e, i, a) => {
-     console.log("pat_" + i + "_:" + str.substring(e));
- })
+// console.log("patArray:" + pat);
+//  pat.forEach((e, i, a) => {
+//      console.log("pat_" + i + "_:" + str.substring(e));
+//  })
 
-lcp.forEach((e, i, a) => {
-   console.log("lcp_" + i + "_:" + e);
- })
+// lcp.forEach((e, i, a) => {
+//    console.log("lcp_" + i + "_:" + e);
+//  })
 
 res.forEach((e, i, a) => {
     console.log("res_" + i + "_:" + JSON.stringify(e));
